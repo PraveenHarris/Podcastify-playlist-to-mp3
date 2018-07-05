@@ -15,9 +15,6 @@ def get_playlist_info(website):
     website_html = requests.get(website).content
     soup = BeautifulSoup(website_html, 'html.parser')
 
-    with open('f.html', 'w') as f:
-        f.write(str(str(soup).encode('utf-8')))
-
     playlist_title = soup.find_all('h3', 'playlist-title')[0].find('a', 'spf-link').text
 
     video_titles = []
